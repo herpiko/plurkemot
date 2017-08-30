@@ -11,7 +11,7 @@ If you buy `Plurk Coin`, you'll gain some extra features including larger emotic
 
 ### Packaging
 
-Please consult to <img target="_blank" src="https://developer.chrome.com/extensions/devguide">https://s.plurk.com/1c890273544559b17f090d09238fa763.gif</a>
+Please consult to <img target="_blank" src="https://developer.chrome.com/extensions/devguide">https://developer.chrome.com/extensions/devguide</a>
 
 ### License
 
