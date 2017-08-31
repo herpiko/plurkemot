@@ -2,6 +2,7 @@ function fireEmot(){
   var url = this.getAttribute('src');
   chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
     chrome.tabs.sendMessage(tabs[0].id, {data: url});
+    window.close();
   });
 }
 
@@ -10,12 +11,16 @@ function loadEmots(cb){
   emotsDiv.innerHTML = '';
   chrome.storage.sync.get(function(emots){
     var keys = Object.keys(emots);
-    keys.forEach(function(key){
-      if (key.indexOf('plurkemotURL') > -1 && emots[key].indexOf('https://emos.plurk.com') > -1) {
-        emotsDiv.innerHTML += '<img style="width:30px;" class="emot" src="' + emots[key] + '">';
-      }
-    });
-    cb();
+    if (keys.length > 0) {
+      keys.forEach(function(key){
+        if (key.indexOf('plurkemotURL') > -1 && emots[key].indexOf('https://emos.plurk.com') > -1) {
+          emotsDiv.innerHTML += '<img class="emot" src="' + emots[key] + '">';
+        }
+      });
+      cb();
+    } else {
+      emotsDiv.innerHTML += '<p>No emot yet.</p>';
+    } 
   });
 }
 
@@ -39,7 +44,7 @@ function handleFileSelect(evt) {
 }
 
 
-document.getElementById('files').addEventListener('change', handleFileSelect, false);
+//document.getElementById('files').addEventListener('change', handleFileSelect, false);
 
 setTimeout(function(){
   loadEmots(function(){

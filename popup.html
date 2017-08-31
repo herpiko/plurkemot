@@ -3,10 +3,34 @@
   <head>
     <title>Plurkemot</title>
   </head>
+  <style>
+    body {
+      width:400px;
+    }
+    .title {
+      margin:0px;
+      margin-bottom:5px;
+      color:orange;
+      text-align:center;
+    }
+    .emot {
+      width:30px;
+      margin:1px;
+      cursor:pointer;
+      border:2px solid white;
+    }
+    .emot:hover {
+      border:2px solid orange !important;
+    }
+    .footer {
+      text-align:center;
+    }
+  </style>
   <body>
-    <h1>Plurkemot</h1>
+    <h4 class="title">Plurkemot</h4>
     <div id="emots"></div>
-    <input type="file" id="files" name="files[]" multiple />
+    <!--input type="file" id="files" name="files[]" multiple /-->
     <script src="popup.js"></script>
+    <h4 class="footer">Please buy Plurk Coin to support Plurk!</h4>
   </body>
 </html>
