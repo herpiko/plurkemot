@@ -1,5 +1,6 @@
 // Taken from : http://stackoverflow.com/questions/7404366/how-do-i-insert-some-text-where-the-cursor-is
 function insertTextAtCursor(text) {
+  text = text + ' ';
   var el = document.activeElement;
   var val = el.value;
   var endIndex;
