@@ -11,7 +11,7 @@ function insertTextAtCursor(text) {
       endIndex = el.selectionEnd;
       el.value = val.slice(0, endIndex) + text + val.slice(endIndex);
       el.selectionStart = el.selectionEnd = endIndex + text.length;
-  } else if (doc.selection !== 'undefined' && doc.selection.createRange) {
+  } else if (doc.selection !== 'undefined' && doc.selection && doc.selection.createRange) {
       el.focus();
       range = doc.selection.createRange();
       range.collapse(false);
@@ -21,6 +21,7 @@ function insertTextAtCursor(text) {
 }
 
 chrome.runtime.onMessage.addListener(function(request, sender, sendResponse) {
+  console.log(request);
   if (request.data) {
     insertTextAtCursor(request.data);
   }
